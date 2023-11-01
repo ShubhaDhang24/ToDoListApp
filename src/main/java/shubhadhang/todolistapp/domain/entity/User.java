@@ -1,4 +1,4 @@
-package shubhadhang.todolistapp.entity;
+package shubhadhang.todolistapp.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

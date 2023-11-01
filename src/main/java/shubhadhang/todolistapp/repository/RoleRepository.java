@@ -2,7 +2,7 @@ package shubhadhang.todolistapp.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import shubhadhang.todolistapp.entity.Role;
+import shubhadhang.todolistapp.domain.entity.Role;
 
 import java.util.Optional;
 
