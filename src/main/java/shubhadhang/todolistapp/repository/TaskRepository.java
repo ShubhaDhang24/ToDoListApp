@@ -14,19 +14,19 @@ import java.util.List;
 @Repository
     public interface TaskRepository extends JpaRepository<Task, Long> {
 
-        // todo: select tasks by title
+        //  select tasks by title
 
     @Query("select t from Task t where t.title = :title")
     List<Task> findByTitle(String title);
 
 
-    // todo: select tasks by person id
-    @Query("select t from Task t where t.title = :title and t.id=:id")
-    List<Person> findByPersonId(@Param("title")String title,@Param("id")Long id);
+    // select tasks by person id
+    @Query("select t from Task t where t.id=:id")
+    List<Person> findByPersonId(Long id);
 
-    // todo: select tasks by status
+    //  select tasks by status
     @Query("select t from Task t where t.done = :done")
-    List<Person> findTaskByStatus(@Param("done") boolean done);
+    List<Person> findTaskByStatus( boolean done);
 
         // todo: select tasks by date between start and end
         @Query("select t from Task t where t.deadline>= :startdate and t.deadline<=:enddate")
@@ -37,8 +37,13 @@ import java.util.List;
         List<Person> findByDeadline(@Param("deadline")LocalDate deadline);
 
         // todo: select all un-assigned tasks
+        @Query("select t from Task t where t.person = null")
+        List<Person> findByUnAssignedTask();
 
         // todo: select all un-finished tasks
+        @Query("select t from Task t where t.done <> false")
+        List<Person> findByUnFinishedTask();
+
         // add more as needed...
 
     }

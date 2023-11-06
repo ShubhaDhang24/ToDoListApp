@@ -14,4 +14,7 @@ import java.util.List;
         @Query("select p from Person p where SIZE(p.tasks) = 0")
         List<Person> findIdlePeople();
 
+        List<Person> findByEmail(String email);
+
     }
+
